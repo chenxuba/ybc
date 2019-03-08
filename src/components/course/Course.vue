@@ -28,7 +28,7 @@ export default {
   methods: {
     //请求banner
     getBgbanner() {
-      this.$http.get("http://wx.ybc365.com/api/v1.0/banner?name=course").then(result => {
+      this.$http.get(API+"/api/v1.0/banner?name=course").then(result => {
           this.bgbanner = result.body.data.list[0];
         }).catch(err => {
           console.log(err);
@@ -36,7 +36,7 @@ export default {
     },
     //请求课程列表介绍
     getCourse(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/module?name=courses").then(result => {
+      this.$http.get(API+"/api/v1.0/module?name=courses").then(result => {
           this.course = result.body.data.list
       }).catch(err => {
           console.log(err);
@@ -54,7 +54,7 @@ export default {
 .course .banner {
   width: 100%;
   min-width: 1296px;
-  height: 520px;
+  height: 500px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

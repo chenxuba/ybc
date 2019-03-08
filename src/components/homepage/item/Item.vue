@@ -46,13 +46,12 @@ export default {
 .banner {
   min-width: 1296px;
   width: 100%;
-  height: 470px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
 .item-center {
   width: 1296px;
-  height: 470px;
+  height: 405px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -62,36 +61,40 @@ export default {
 }
 .item-project-box {
   width: 360px;
-  height: 164px;
+  height: 142px;
   background-repeat: no-repeat;
   background-position: center;
 }
 .item-icon-text-box {
   display: flex;
-  padding-top: 22px;
+  padding-top: 14px;
 }
 .icon-box {
-  width: 48px;
-  height: 48px;
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
-  background-color: #3676bd;
-  flex: 0 0 48px;
+  /* background-color: #3676bd; */
+  flex: 0 0 42px;
   margin-right: 12px;
   margin-left: 18px;
 }
-
+.icon-box img{
+  width: 100%;
+  height: 100%;
+}
 .item-project-text {
   flex: 1;
   color: #2f2725;
   font-family: "微软雅黑";
-  padding-right: 27px;
+  padding-right: 18px;
 }
 .item-project-text h1 {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 30px;
 }
 .item-project-text p {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 27px;
+  color: #5c5453;
 }
 </style>

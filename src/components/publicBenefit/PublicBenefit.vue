@@ -26,7 +26,7 @@ export default {
   methods:{
     //请求banner
     getBgbanner(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/banner?name=welfare").then((result) => {
+      this.$http.get(API+"/api/v1.0/banner?name=welfare").then((result) => {
         this.bgbanner = result.body.data.list[0]
       }).catch((err) => {
         console.log(err)
@@ -34,7 +34,7 @@ export default {
     },
     //请求社会公益模块
     getwelfare(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/module?name=welfare").then((result) => {
+      this.$http.get(API+"/api/v1.0/module?name=welfare").then((result) => {
         this.welfare = result.body.data
       }).catch((err) => {
         console.log(err)
@@ -42,27 +42,19 @@ export default {
     },
     //请求社会责任模块数据
     getsocialresp(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/module?name=socialresp").then((result) => {
+      this.$http.get(API+"/api/v1.0/module?name=socialresp").then((result) => {
         this.socialresp = result.body.data.list[0]
         // console.log(this.socialresp)
       }).catch((err) => {
         console.log(err)
       });
     },
-    //请求捐助单位模块数据
-    getdonation(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/module?name=donation").then((result) => {
-        console.log(result)        
-      }).catch((err) => {
-        console.log(err)        
-      });
-    }
   },
   mounted(){
       this.getBgbanner()
       this.getwelfare()
       this.getsocialresp()
-      this.getdonation()
+      // this.getdonation()
   }
 };
 </script>

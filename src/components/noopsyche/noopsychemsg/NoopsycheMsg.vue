@@ -1,29 +1,46 @@
 <template>
     <div class="noopsychemsg">
         <div class="noopsychemsg-center">
-            <div class="app" v-for="(item,index) in intelligent.list" :key="index">
-                <div class="app-left">
-                    <div class="app-left-img-box">
-                        <img v-lazy="item.fr_image" alt="">
+            <div class="app-wx" v-for="(i,x) in intelligent.list" :key="x">
+                <div class="app">
+                    <div class="app-left">
+                        <img :src="i.bg_image" alt="">
+                    </div>
+                    <div class="app-right">
+                        <p class="title">{{i.title}}</p>
+                        <p class="txt">
+                            {{i.content}}
+                        </p>
+                        <div class="img" v-show="i.fr_image">
+                            <img :src="i.fr_image" alt="">
+                        </div>
                     </div>
                 </div>
-                <div class="app-right">
-                    <h1 class="title">{{item.title}}</h1>
-                    <div class="slid" v-bgcolor></div>
-                    <p class="txt">
-                        {{item.content}}
-                    </p>
+                <div class="wx">
+                    <div class="app-right">
+                        <p class="title">{{i.title1}}</p>
+                        <p class="txt">
+                           {{i.content1}}
+                        </p>
+                        <div class="img" v-show="i.fr_image1">
+                            <img :src="i.fr_image1" alt="">
+                        </div>
+                    </div>
+                    <div class="app-left">
+                        <img :src="i.bg_image1" alt="">
+                    </div>
                 </div>
             </div>
-
-            <!-- ********************************************************************************* -->
-            
         </div>
     </div>
 </template>
 
 <script>
 export default {
+    data() {
+        return {
+        }
+    },
     props:{
         intelligent:{
             type: Object,
@@ -36,69 +53,74 @@ export default {
 <style scoped>
 .noopsychemsg{
     width: 100%;
-    margin-top: 50px;
-    background-color: #fff;
+    margin-top: 60px;
+    /* background-color: red; */
 }
 .noopsychemsg .noopsychemsg-center{
     width: 1290px;
     margin: 0 auto;
 }
-.noopsychemsg .noopsychemsg-center .app{
+.app-wx{
+    width: 100%;
+}
+.app-wx .app,
+.app-wx .wx{
+    width: 100%;
+    height: 305px;
     display: flex;
-    width: 100%;
-    height: 397px;
-    margin: 60px 0;
-    position: relative;
 }
-.noopsychemsg .noopsychemsg-center .app::after{
-    content: '';
-    display: block;
-    width: 100%;
-    border: 1px solid #ccc;
-    position: absolute;
-    bottom: -30px;
-    left: 0;
-    
+.app-wx .app .app-left,
+.app-wx .wx .app-left{
+    width: 350px;
+    height: 305px;
+    margin-right: 50px;
+    /* background-color: gold; */
 }
-.noopsychemsg .noopsychemsg-center .app .app-left{
-    flex: 0 0 397px;
-    background-color: #a3c0e1;
-    /* opacity: 0.46; */
-    border-radius: 10px;
-    position: relative;
-}
-.noopsychemsg .noopsychemsg-center .app .app-right{
-    flex: 1;
-    margin-left: 67px;
-    /* background-color: orange; */
-}
-.app-left-img-box{
-    position: absolute;
-    top: 22px;
-    left: 23px;
-    right: -33px;
-}
-.app-left-img-box img{
+.app-wx .app .app-left img,
+.app-wx .wx .app-left img{
     width: 100%;
     height: 100%;
-    border-radius: 10px;
 }
-
-
-.app-right .title{
-    font-size: 25px;
-    line-height: 30px;
-    color: #3676bd;
+.app-wx .app .app-right,
+.app-wx .wx .app-right{
+    flex: 1;
+    position: relative;
+    /* background-color: pink; */
 }
-.app-right .slid{
-    width: 100%;
-    height: 9px;
-    background-color: #3676bd;
-    margin: 15px 0 24px 0;
-}
-.app-right .txt{
+.app-wx .app .app-right .title,
+.app-wx .wx .app-right .title{
+    line-height: 50px;
     font-size: 18px;
-    line-height: 30px;
-    color: #2f2725;
+    border-bottom: 2px solid #2bc4ca;
+}
+.app-wx .app .app-right .txt,
+.app-wx .wx .app-right .txt{
+    padding-right: 400px;
+    line-height: 1.7em;
+    margin-top: 30px;
+    color: #8c8c8c;
+    font-size: 14px;
+}
+.app-wx .app .app-right .img,
+.app-wx .wx .app-right .img{
+    width: 180px;
+    height: 200px;
+    /* background-color: orange; */
+    position: absolute;
+    top: 88px;
+    right: 100px;
+}
+.app-wx .app .app-right .img img,
+.app-wx .wx .app-right .img img{
+    width: 100%;
+    height: 100%;
+}
+.app-wx .wx{
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+.app-wx .wx .app-left{
+  margin-left: 55px;
+  margin-right: 0;
 }
 </style>

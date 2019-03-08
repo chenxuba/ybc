@@ -6,8 +6,9 @@ import Course from '@/components/course/Course'
 import News from '@/components/news/News'
 import About from '@/components/about/About'
 import Detail from '@/components/detail/Detail'
+import Detail2 from '@/components/detail2/Detail2'
 import PublicBenefit from '@/components/publicBenefit/PublicBenefit'
-
+import Qicai from '@/components/qicai/Qicai'
 Vue.use(Router)
 
 export default new Router({
@@ -46,6 +47,15 @@ export default new Router({
     {
       path:'/detail/:id',
       component: Detail
-    }
+    },
+    {
+      path:'/detail2/:id',
+      component: Detail2
+    },
+    {
+      path: '/qicai',
+      name: 'Qicai',
+      component: Qicai
+    },
   ]
 })

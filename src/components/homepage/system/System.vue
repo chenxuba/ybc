@@ -1,6 +1,7 @@
 <template>
     <div class="system">
         <div class="system-center">
+            <web-dot></web-dot>
             <div class="title" v-rainbow>
                 <span> {{system.title}}</span>   
             </div>
@@ -13,12 +14,16 @@
 </template>
 
 <script>
+import Dot from './Dot/dot'
 export default {
     props:{
         system:{
             type:Object,
             default:{}
         }
+    },
+    components:{
+        "web-dot":Dot
     }
 }
 </script>
@@ -32,30 +37,19 @@ export default {
 .title{
     text-align: center;
     font-family: "微软雅黑";
-    font-size: 40px;
+    font-size: 34px;
     color: #3e3a39;
+    margin-top: 15px;
     letter-spacing: 3px;
     position: relative;
-    margin-bottom: 75px;
-}
-.title:after{
-    content:"";
-    display: block;
-    width: 95px;
-    height: 7px;
-    background-color: #24b5b8;
-    position: absolute;
-    bottom: -22px;
-    right: 50%;
-    margin-right: -48px;
-    border-radius: 3px;
+    margin-bottom: 50px;
 }
 .text{
     font-family: "微软雅黑";
-    line-height: 42px;
+    line-height: 38px;
     color: #2f2725;
-    font-size: 20px;
-    text-align: center;
+    font-size: 18px;
+    text-align: left;
     padding-bottom: 64px;
 }
 </style>

@@ -42,7 +42,7 @@ export default {
   methods:{
     //获取banner图
     getBgbanner(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/banner?name=homepage").then((result) => {
+      this.$http.get(API+"/api/v1.0/banner?name=homepage").then((result) => {
         this.bgbanner = result.body.data.list[0]
       }).catch((err) => {
         console.log(err)
@@ -50,7 +50,7 @@ export default {
     },
     //获取fourmenu数据
     getfourmenu(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/module?name=introduction").then((result) => {
+      this.$http.get(API+"/api/v1.0/module?name=introduction").then((result) => {
         this.fourmenu = result.body.data.list
       }).catch((err) => {
         console.log(err)        
@@ -58,7 +58,7 @@ export default {
     },
     //获取system数据
     getSystem(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/module?name=trainsys").then((result) => {
+      this.$http.get(API+"/api/v1.0/module?name=trainsys").then((result) => {
         this.system = result.body.data
       }).catch((err) => {
         console.log(err)  
@@ -66,7 +66,7 @@ export default {
     },
     //获取合作伙伴模块数据
     getFriend(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/module?name=partner").then((result) => {
+      this.$http.get(API+"/api/v1.0/module?name=partner").then((result) => {
         this.friend = result.body.data.list
       }).catch((err) => {
         console.log(err)        
@@ -89,7 +89,7 @@ export default {
 .banner{
   min-width: 1296px;
   width: 100%;
-  height: 520px;
+  height: 450px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

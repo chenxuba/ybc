@@ -2,6 +2,7 @@
     <div class="detail">
         <div class="banner" :style="head_bg_news"></div>
         <div class="content">
+         <web-dot></web-dot>
           <div class="title" v-rainbow>医佰康新闻资讯</div>
           <div class="content-txt">
             <h1 class="name">{{news.title}}</h1>
@@ -9,10 +10,10 @@
               <span>来源</span>:<span>{{news.from}}</span>
               <span>发布时间</span>:<span>{{news.c_time | time}}</span>
               <span>{{news.view}}次浏览</span>
-              <span>分类</span>:<span>{{newsmenu[0]}}</span>
+              <!-- <span>分类</span>:<span>{{newsmenu[0]}}</span> -->
             </div>
             <p v-html="news.content" class="p"></p>
-            <div class="goback" @click="goback">返回</div>
+            <div class="goback" @click="goback" v-if="isShow">返回</div>
           </div>
         </div>
         
@@ -20,13 +21,15 @@
 </template>
 
 <script>
+import Dot from "../homepage/system/Dot/dot";
 export default {
     data(){
         return{
             bgbanner:{},
             id: this.$route.params.id,
             news:{},
-            newsmenu:[]
+            newsmenu:[],
+            isShow:false
         }
     },
     computed: {
@@ -37,7 +40,7 @@ export default {
   methods: {
     //获得banner
     getBgbanner() {
-      this.$http.get("http://wx.ybc365.com/api/v1.0/banner?name=news").then(result => {
+      this.$http.get(API+"/api/v1.0/banner?name=news").then(result => {
           this.bgbanner = result.body.data.list[0];
         })
         .catch(err => {
@@ -46,7 +49,7 @@ export default {
     },
     //获得详情
     getDetail(){
-      this.$http.get("http://wx.ybc365.com/api/v1.0/newses/"+ this.id).then((result) => {
+      this.$http.get(API+"/api/v1.0/newses/"+ this.id).then((result) => {
         // console.log(result)
         this.news = result.body.data.news
         this.newsmenu = result.body.data.news.category
@@ -57,11 +60,24 @@ export default {
     },
     goback(){
       this.$router.go(-1)
+    },
+    handleScroll(){
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+      // console.log(scrollTop)
+      if(scrollTop >= 600){
+        this.isShow = true;
+      }else{
+        this.isShow = false;
+      }
     }
   },
   mounted() {
     this.getBgbanner()
     this.getDetail()
+    window.addEventListener('scroll',this.handleScroll)
+  },
+  components: {
+    "web-dot": Dot
   }
 }
 </script>
@@ -73,39 +89,30 @@ export default {
 }
 .banner {
   width: 100%;
-  height: 520px;
+  height: 500px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  margin-bottom: 40px;
 }
 .detail .content .title{
     text-align: center;
     font-family: "微软雅黑";
-    font-size: 40px;
+    font-size: 34px;
     color: #3e3a39;
     letter-spacing: 3px;
     position: relative;
-    padding-top: 49px;
-    margin-bottom: 56px;
+    padding-top: 15px;
+    margin-bottom: 40px;
 }
-.detail .content .title::after{
-    content:"";
-    display: block;
-    width: 95px;
-    height: 7px;
-    background-color: #24b5b8;
-    position: absolute;
-    bottom: -22px;
-    right: 50%;
-    margin-right: -48px;
-    border-radius: 3px;
-}
+
 .detail .content .content-txt{
     width: 1296px;
     margin: 0 auto;
     height: 100%;
-    padding-top: 39px;
-    border: dashed 2px #bfbfbf;
+    padding-top: 40px;
+    border: dashed 1px #bfbfbf;
     position: relative;
+    margin-bottom: 20px;
 }
 .detail .content .content-txt .name{
   text-align: center;
@@ -139,14 +146,16 @@ export default {
 	color: #2f2725;
 }
 .goback{
-    padding: 10px;
-    width: 60px;
+    /* padding: 10px; */
+    width: 20px;
+    height: 60px;
     color: #fff;
+    line-height: 30px;
     text-align: center;
     background-color: #24b5b8;
-    position: absolute;
-    right: 50px;
-    bottom: 20px;
+    position: fixed;
+    bottom: 450px;
+    right:80px;
     cursor: pointer;
 }
 </style>

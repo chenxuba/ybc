@@ -8,7 +8,7 @@ import VueResource from 'vue-resource'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import VueLazyload from 'vue-lazyload'
- 
+import '../static/css/media.css'
 //时间过滤器
 import moment from 'moment'
 Vue.filter('time', function (value, formatString) {
@@ -16,11 +16,11 @@ Vue.filter('time', function (value, formatString) {
   return moment(value).format(formatString);
 })
 Vue.filter('time2', function (value, formatString) {
-  formatString = formatString || 'YYYY-MM';
+  formatString = formatString || 'MM-DD';
   return moment(value).format(formatString);
 })
 Vue.filter('time3', function (value, formatString) {
-  formatString = formatString || 'DD';
+  formatString = formatString || 'YYYY';
   return moment(value).format(formatString);
 })
 //自定义scroll

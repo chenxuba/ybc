@@ -55,50 +55,44 @@ export default {
 }
 .fourmenu .fourmenu-center {
   width: 1296px;
-  padding: 50px 0 0 0;
+  padding: 40px 0 0 0;
+  box-sizing: border-box;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 .fourmenu-center {
-  height: 395px;
+  height: 355px;
+  padding: 0 50px;
+  box-sizing: border-box;
 }
 .power {
-  width: 274px;
-  height: 285px;
+  width: 237px;
+  height: 247px;
   font-family: "微软雅黑";
 }
 .power-box {
-  width: 173px;
-  height: 172px;
+  width: 150px;
+  height: 150px;
   background-color: #ccc;
   border-radius: 50%;
-  border: solid 5px #fff;
-  box-shadow: 5px 9px 5px 0px rgba(159, 160, 160, 0.5);
+  border: solid 3px #fff;
+  box-shadow: 5px 8px 8px 0px rgba(149, 100, 100, 0.4);
   margin: 0 auto;
   text-align: center;
-  line-height: 172px;
-  font-size: 25px;
+  line-height: 150px;
+  font-size: 22px;
   color: #fff;
 }
 
 .power-text {
-  width: 274px;
+  width: 237px;
   padding-top: 20px;
 }
 .power-text p {
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 15px;
+  line-height: 28px;
   color: #7e7572;
-}
-.wit {
-  background-color: #ff6666;
-}
-.autonomously {
-  background-color: #66cc99;
-}
-.diversification {
-  background-color: #e9a33a;
 }
 @keyframes fadeInDownBig {
   from {

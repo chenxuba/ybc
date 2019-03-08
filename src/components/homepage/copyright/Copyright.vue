@@ -6,7 +6,7 @@
           href="http://218.242.124.22:8081/businessCheck/verifKey.do?showType=extShow&amp;serial=9031000020171101094649000002146705-SAIC_SHOW_310000-20180110193146598403&amp;signData=MEQCIHJXW8r8hmmwACwuFcfEAMr65ESVnrm5NdQaEXLSVDKwAiA6Vfk/qe4IkMel26HkGGQwpFprDzlMqigZF+vV+naLuA=="
         >
           <img
-            src="http://www.ybc365.com/wp-content/uploads/2018/01/336648856_1102071717_lz2.png"
+            src="http://www.chenruisheng.info/img/1.png"
             alt
           >
         </a>
@@ -25,7 +25,7 @@ export default {};
     width: 100%;
     min-width: 1296px;
     height: 67px;
-    background-color: #008489;
+    background-color: #666;
     text-align: center;
     position: relative;
 }

@@ -25,7 +25,7 @@ export default {
   methods: {
     getBgbanner() {
       this.$http
-        .get("http://wx.ybc365.com/api/v1.0/banner?name=news")
+        .get(API+"/api/v1.0/banner?name=news")
         .then(result => {
           this.bgbanner = result.body.data.list[0];
         })
@@ -46,7 +46,7 @@ export default {
 .banner {
   width: 100%;
   min-width: 1296px;
-  height: 520px;
+  height: 500px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

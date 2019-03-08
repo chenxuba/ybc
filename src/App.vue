@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <web-nav></web-nav>
-     <transition name="move" mode="out-in">
+
+    <transition name="move" mode="out-in">
+      <keep-alive>
         <router-view/>
+      </keep-alive>
     </transition>
+
     <web-bottomnav></web-bottomnav>
     <web-bottominfo></web-bottominfo>
     <web-copyright></web-copyright>
@@ -11,28 +15,30 @@
 </template>
 
 <script>
-import Nav from '@/components/nav/Nav'
-import BottomNav from '@/components/homepage/bottomnav/BottomNav'
-import BottomInfo from '@/components/homepage/bottominfo/BottomInfo'
-import Copyright from '@/components/homepage/copyright/Copyright'
+import Nav from "@/components/nav/Nav";
+import BottomNav from "@/components/homepage/bottomnav/BottomNav";
+import BottomInfo from "@/components/homepage/bottominfo/BottomInfo";
+import Copyright from "@/components/homepage/copyright/Copyright";
 export default {
-  name: 'App',
-  components:{
+  name: "App",
+  components: {
     "web-nav": Nav,
-    "web-bottomnav":BottomNav,
-    "web-bottominfo":BottomInfo,
-    "web-copyright":Copyright
+    "web-bottomnav": BottomNav,
+    "web-bottominfo": BottomInfo,
+    "web-copyright": Copyright
   }
-}
+};
 </script>
 
 <style>
-.move-enter-active{
-  transition:  2s    /*开始进入所画的事件*/
+.move-enter-active {
+  transition: 2s; /*开始进入所画的事件*/
 }
-.move-enter{
+.move-enter {
   /* transform: translateX(-100%); */
-  opacity: 0;        /*开始进入所用的的方式   从左向右进*/  
-
+  opacity: 0; /*开始进入所用的的方式   从左向右进*/
+}
+html {
+  min-width: 1296px;
 }
 </style>
